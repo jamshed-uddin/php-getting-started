@@ -48,19 +48,27 @@ $newBooks = [
 
 //  functions and filter
 
-function filterByAuthor ($bookList, $authorName){
-$filteredBooks = []; 
+// lambda function -- anonymous function assigned to a variable 
 
-foreach($bookList as $book){
-    if($book['author'] === $authorName){
-$filteredBooks[] = $book;  // pushing an element to the array
+$filter = function  ($items,$fn){
+$filteredItems = []; 
+
+foreach($items as $item){
+    if($fn($item)){
+$filteredItems[] = $item;  // pushing an element to the array
     }; 
 };
 
-return $filteredBooks;
-
-
+return $filteredItems;
 };
+
+
+
+
+
+
+
+
 
 
 
@@ -79,8 +87,12 @@ return $filteredBooks;
 
     <ul>
         <?php
+
+        $filteredBooks =array_filter($newBooks, function($book){
+return $book['author']==='G. R. R. Martin';
+        }) ;
         
-        foreach(filterByAuthor($newBooks, 'Tolkien') as $book):
+        foreach($filteredBooks as $book):
         
         ?>
 
