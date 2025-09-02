@@ -38,15 +38,31 @@ $newBooks = [
     "author"=> "G. R. R. Martin"
 ], 
 [
-    "name"=> "The hobbit", 
+    "name"=> "The hobbits", 
     "author"=> 'Tolkien'
 ]
 
-];
+]; 
 
 
 
 //  functions and filter
+
+function filterByAuthor ($bookList, $authorName){
+$filteredBooks = []; 
+
+foreach($bookList as $book){
+    if($book['author'] === $authorName){
+$filteredBooks[] = $book;  // pushing an element to the array
+    }; 
+};
+
+return $filteredBooks;
+
+
+};
+
+
 
 
 
@@ -64,17 +80,25 @@ $newBooks = [
     <ul>
         <?php
         
-        foreach($newBooks as $book):
+        foreach(filterByAuthor($newBooks, 'Tolkien') as $book):
         
         ?>
 
-<h3><?=   $book['name'] . "-". $book['author']  ?> </h3>
 
-<?php  endforeach ?>
+
+<li><?= $book['name'] ?> </li>
+
+<?php  endforeach; ?>
 
 
 
     </ul>
+
+
+
+    <h3>
+   
+    </h3>
 <ul>
 
 </ul>
