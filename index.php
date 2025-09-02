@@ -1,21 +1,21 @@
-<?php 
-
-$heading = 'Home';
-
+<?php
 require 'functions.php';
 
 
+$uri = $_SERVER['REQUEST_URI'];
 
 
 
-$business= [
-    "name"=> "Laracasts", 
-    "cost"=> 15, 
-    "categories"=>['Php', 'testing', 'javascript']
-
-]; 
+var_dump($uri);
 
 
-require "views/index.view.php";
 
 
+
+if ($uri === '/website/') {
+    require 'controllers/index.php';
+} else if ($uri === '/website/contact') {
+    require 'controllers/contact.php';
+} else if ($uri === '/website/about') {
+    require 'controllers/about.php';
+}
