@@ -1,5 +1,11 @@
 <?php 
 
+$heading = 'Home';
+
+require 'functions.php';
+
+
+
 
 
 $business= [
