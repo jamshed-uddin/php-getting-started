@@ -1,7 +1,9 @@
-<?php 
+<?php
 
 $heading = 'About us';
 
+
+class About {}
 
 
 

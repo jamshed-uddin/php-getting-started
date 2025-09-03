@@ -1,21 +1,22 @@
 <?php
 require 'functions.php';
-
-
-$uri = $_SERVER['REQUEST_URI'];
-
-
-
-var_dump($uri);
+require 'Database.php';
 
 
 
+$config = require('config.php');
+
+$db = new Database($config);
+
+$posts = $db->query('select * from posts')->fetchAll();
 
 
-if ($uri === '/website/') {
-    require 'controllers/index.php';
-} else if ($uri === '/website/contact') {
-    require 'controllers/contact.php';
-} else if ($uri === '/website/about') {
-    require 'controllers/about.php';
-}
+// dd($posts);
+
+
+
+
+
+foreach ($posts as $post) {
+    echo "<li>{$post['title']} </li>";
+};
