@@ -36,8 +36,12 @@
                 <form action="" class="space-y-2" method="POST">
                     <div>
                         <label for="body">Description</label><br>
-                        <textarea name="body" id="body" class="border border-black rounded-md p-2"></textarea>
+                        <textarea name="body" id="body" class="border border-black rounded-md p-2"><?= $_POST['body'] ?? '' ?></textarea>
 
+
+                        <?php if (isset($errors)) : ?>
+                            <p class="text-sm text-red-500"><?= $errors['body'] ?? '' ?></p>
+                        <?php endif; ?>
 
 
                     </div>
