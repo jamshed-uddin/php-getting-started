@@ -24,6 +24,7 @@
 -->
     <div class="min-h-full">
 
+
         <!-- navbar -->
         <?php require 'partials/nav.php'; ?>
         <?php require 'partials/banner.php'; ?>
@@ -32,24 +33,35 @@
             <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
 
 
+                <form action="" class="space-y-2" method="POST">
+                    <div>
+                        <label for="body">Description</label><br>
+                        <textarea name="body" id="body" class="border border-black rounded-md p-2"></textarea>
 
-                <div>
 
 
-                    <a href="/website/notes" class="hover:underline text-blue-500 block mb-10">← All notes</a>
+                    </div>
 
-                    <p>
-
-                        <?= $note['body']   ?>
-
-                    </p>
-
-                    </ul>
-
-                </div>
+                    <button type="submit" class="border border-black rounded-md p-1">Create</button>
+                </form>
             </div>
         </main>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <script src="https://cdn.tailwindcss.com"></script>
 </body>
 

@@ -9,7 +9,7 @@ $db = new Database($config['database']);
 
 // dd($db);
 
-$notes = $db->query("SELECT * FROM notes")->fetchAll();
+$notes = $db->query("SELECT * FROM notes")->findAll();
 
 // dd($notes);
 

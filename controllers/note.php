@@ -13,8 +13,14 @@ $id = $_GET['id'];
 // dd($id);
 
 
-$note = $db->query("SELECT * FROM notes where id = :id", ['id' => $id])->fetch();
+$note = $db->query("SELECT * FROM notes where id = :id", ['id' => $id])->findOrFail();
 
-// dd($notes);
+$currentUserId = 1;
+
+authorize($note['user_id'] === $currentUserId);
+
+
+
+
 
 require 'views/note.view.php';

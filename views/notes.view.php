@@ -35,7 +35,9 @@
 
                 <div>
 
-
+                    <p class="py-4">
+                        <a href="/website/notes/create">Create note +</a>
+                    </p>
                     <ul>
                         <?php foreach ($notes as $note): ?>
 
