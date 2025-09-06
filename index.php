@@ -1,28 +1,27 @@
 <?php
 require 'functions.php';
 require 'Database.php';
-
-
-
-$config = require('config.php');
-
-$db = new Database($config['database']);
-
-
-
-
-$id = $_GET['id'];
-
-$query = "select * from demoposts where id = ?";
-$posts = $db->query($query, [$id])->fetch();
-
-
-dd($posts);
+require 'router.php';
 
 
 
 
 
-foreach ($posts as $post) {
-    echo "<li>{$post['title']} </li>";
-};
+
+
+
+// $id = $_GET['id'];
+
+// $query = "select * from demoposts where id = :id";   //instead of ? mark it can be a placeholder like :id . and to pass it it need to be acc array
+// $posts = $db->query($query, ['id' => $id])->fetch();
+
+
+// dd($posts);
+
+
+
+
+
+// foreach ($posts as $post) {
+//     echo "<li>{$post['title']} </li>";
+// };
