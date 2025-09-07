@@ -33,10 +33,12 @@
             <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
 
 
-                <form action="/website/public/notes/create" class="space-y-2" method="POST">
+                <form action="/website/public/notes/edit" class="space-y-2" method="POST">
                     <div>
+                        <input type="hidden" name="method" value="patch">
+                        <input type="hidden" name="id" value="<?= $note['id'] ?>">
                         <label for="body">Description</label><br>
-                        <textarea name="body" id="body" class="border border-black rounded-md p-2"><?= $_POST['body'] ?? '' ?></textarea>
+                        <textarea name="body" id="body" class="border border-black rounded-md p-2"><?= $_POST['body'] ?? '' ?><?= $note['body'] ?></textarea>
 
 
                         <?php if (isset($errors)) : ?>
@@ -46,7 +48,10 @@
 
                     </div>
 
-                    <button type="submit" class="border border-black rounded-md p-1">Create</button>
+                    <div class="space-x-3">
+                        <a href="/website/public/note?id=<?= $note['id'] ?>" class="border border-black rounded-md p-1">Cancel</a>
+                        <button type="submit" class="border border-black rounded-md p-1">Update</button>
+                    </div>
                 </form>
             </div>
         </main>

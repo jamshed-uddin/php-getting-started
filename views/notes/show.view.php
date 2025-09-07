@@ -45,11 +45,16 @@
                     </p>
 
                     </ul>
-                    <form method="POST" class="mt-6">
-                        <input type="hidden" name='method' value="DELETE">
-                        <input type="hidden" name="id" value="<?=$note['id']?>">
-                        <button type="submit" class="text-red-500 text-sm font-semibold">Delete</button>
-                    </form>
+                    <div class="mt-6 flex gap-3 items-center ">
+                        <div>
+                            <a href="/website/public/notes/edit?id=<?= $note['id'] ?>" class="text-red-500 text-sm font-semibold">Edit</a>
+                        </div>
+                        <form method="POST">
+                            <input type="hidden" name='method' value="DELETE">
+                            <input type="hidden" name="id" value="<?= $note['id'] ?>">
+                            <button type="submit" class="text-red-500 text-sm font-semibold">Delete</button>
+                        </form>
+                    </div>
 
                 </div>
             </div>
