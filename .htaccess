@@ -4,4 +4,4 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond $1 !^(app|framework|routes|vendor|controllers|views|.env|robots\.txt)
 
-RewriteRule ^(.+)$ index.php/$1 [L]
+RewriteRule ^(.+)$ public/index.php/$1 [L]

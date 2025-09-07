@@ -25,8 +25,8 @@
     <div class="min-h-full">
 
         <!-- navbar -->
-        <?php require 'partials/nav.php'; ?>
-        <?php require 'partials/banner.php'; ?>
+        <?php require base_path('views/partials/nav.php'); ?>
+        <?php require base_path('views/partials/banner.php'); ?>
 
         <main>
             <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
@@ -36,7 +36,7 @@
                 <div>
 
 
-                    <a href="/website/notes" class="hover:underline text-blue-500 block mb-10">← All notes</a>
+                    <a href="/website/public/notes" class="hover:underline text-blue-500 block mb-10">← All notes</a>
 
                     <p>
 
@@ -45,6 +45,11 @@
                     </p>
 
                     </ul>
+                    <form method="POST" class="mt-6">
+                        <input type="hidden" name='method' value="DELETE">
+                        <input type="hidden" name="id" value="<?=$note['id']?>">
+                        <button type="submit" class="text-red-500 text-sm font-semibold">Delete</button>
+                    </form>
 
                 </div>
             </div>

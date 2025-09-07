@@ -24,30 +24,32 @@
 -->
     <div class="min-h-full">
 
-
         <!-- navbar -->
-        <?php require 'partials/nav.php'; ?>
-        <?php require 'partials/banner.php'; ?>
+        <?php require base_path('views/partials/nav.php'); ?>
+        <?php require base_path('views/partials/banner.php'); ?>
 
         <main>
             <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
 
 
-                <form action="" class="space-y-2" method="POST">
-                    <div>
-                        <label for="body">Description</label><br>
-                        <textarea name="body" id="body" class="border border-black rounded-md p-2"><?= $_POST['body'] ?? '' ?></textarea>
 
+                <div>
 
-                        <?php if (isset($errors)) : ?>
-                            <p class="text-sm text-red-500"><?= $errors['body'] ?? '' ?></p>
-                        <?php endif; ?>
+                    <p class="py-4">
+                        <a href="/website/public/notes/create">Create note +</a>
+                    </p>
+                    <ul>
+                        <?php foreach ($notes as $note): ?>
 
+                            <li>
+                                <a href="/website/public/note?id=<?= $note['id'] ?>" class="text-blue-500 hover:underline">
+                                    <?= htmlspecialchars($note['body'])   ?>
+                                </a>
+                            </li>
+                        <?php endforeach ?>
+                    </ul>
 
-                    </div>
-
-                    <button type="submit" class="border border-black rounded-md p-1">Create</button>
-                </form>
+                </div>
             </div>
         </main>
     </div>

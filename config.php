@@ -1,9 +1,11 @@
  <?php
 
 
-    return[
-        'database'=> [
-        'host' => 'localhost',
-        'port' => 3306,
-        'dbname' => 'test',
-    ]];
+
+    return [
+        'database' => [
+            'host' => 'localhost',
+            'port' => 3306,
+            'dbname' => 'test',
+        ]
+    ];
