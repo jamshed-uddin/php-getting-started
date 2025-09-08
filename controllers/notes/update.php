@@ -19,15 +19,29 @@ if (!Validator::string($body)) {
 };
 
 
-if (!empty($errors)) {
-    // dasf
-    view(
-        'notes/edit.view.php',
-        ['heading' => 'Edit note', 'errors' => $errors]
-    );
-}
 
 $noteId = $_POST['id'];
+
+
+$currentUserId = 1;
+// dd($db);
+
+$id = $_POST['id'];
+// dd($id);
+var_dump($id);
+$note = $db->query("SELECT * FROM notes where id = :id", ['id' => $id])->findOrFail();
+authorize($note['user_id'] === $currentUserId);
+
+
+
+if (!empty($errors)) {
+    // dasf
+  return view(
+        'notes/edit.view.php',
+        ['heading' => 'Edit note', 'errors' => $errors, 'note' => $note]
+
+    );
+}
 
 $db->query('UPDATE notes SET body=:body WHERE id=:id', ['body' => $body, 'id' => $noteId]);
 

@@ -15,9 +15,13 @@ $router->get('/website/public/', 'controllers/index.php');
 $router->get('/website/public/about', 'controllers/about.php');
 $router->get('/website/public/contact', 'controllers/contact.php');
 
+// user 
+$router->get('/website/public/register', 'controllers/registration/create.php')->only('guest');
+$router->post('/website/public/register', 'controllers/registration/store.php');
+
 
 // notes routes
-$router->get('/website/public/notes', 'controllers/notes/index.php');
+$router->get('/website/public/notes', 'controllers/notes/index.php')->only('auth');
 
 // individual notes
 $router->get('/website/public/note', 'controllers/notes/show.php');
@@ -28,3 +32,4 @@ $router->get('/website/public/notes/create', 'controllers/notes/create.php');
 $router->post('/website/public/notes/create', 'controllers/notes/store.php');
 $router->get('/website/public/notes/edit', 'controllers/notes/edit.php');
 $router->patch('/website/public/notes/edit', 'controllers/notes/update.php');
+//$router->patch('/website/public/notes/edit', [Home:class, 'create']);

@@ -1,7 +1,7 @@
 <?php
 
 
-
+$_SESSION['name']='John';
 
 
 

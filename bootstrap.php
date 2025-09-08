@@ -19,3 +19,5 @@ App::setContainer($container);
 // $db =  $container->resolve('core/Database');
 
 // dd($db);
+
+//App::run();

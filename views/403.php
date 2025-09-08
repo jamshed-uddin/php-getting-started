@@ -9,7 +9,7 @@
 
 <body>
     <h3 class="text-2xl font-bold">You are not authorized to view this note!</h3>
-    <a href="/website/">Back to home</a>
+    <a href="/website/public">Back to home</a>
 </body>
 
 </html>

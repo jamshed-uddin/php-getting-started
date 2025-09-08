@@ -9,7 +9,7 @@
 
 <body>
     <h3 class="text-2xl font-bold">Page not found</h3>
-    <a href="/website/">Back to home</a>
+    <a href="/website/public">Back to home</a>
 </body>
 
 </html>
