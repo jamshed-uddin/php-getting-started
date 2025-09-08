@@ -2,6 +2,9 @@
 
 namespace core;
 
+
+use core\Middlewares\Middleware;
+
 class Routers
 {
     protected $routes = [];
@@ -72,18 +75,15 @@ class Routers
 
             if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
 
-                if ($route['middleware'] === 'guest') {
-                    if ($_SESSION['user'] ?? false) {
-                        header('location: /website/public');
-                        exit();
-                    };
-                };
-                if ($route['middleware'] === 'auth') {
-                    if (!$_SESSION['user'] ?? false) {
-                        header('location: /website/public');
-                        exit();
-                    };
-                };
+                Middleware::resolve($route['middleware']);
+
+                // if ($route['middleware']) {
+                //     $middleware = Middleware::MAP[$route['middleware']];
+
+                //     var_dump($middleware);
+                //     (new $middleware)->handle();
+                // }
+
 
                 return require base_path($route['controller']);
             };
