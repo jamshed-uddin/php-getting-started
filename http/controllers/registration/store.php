@@ -12,7 +12,7 @@ $name = $_POST['name'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-// dd([$name, $email, $password]); 
+// dd([$name, $email, $password]);
 
 $errors = [];
 

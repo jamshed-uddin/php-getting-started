@@ -77,15 +77,9 @@ class Routers
 
                 Middleware::resolve($route['middleware']);
 
-                // if ($route['middleware']) {
-                //     $middleware = Middleware::MAP[$route['middleware']];
-
-                //     var_dump($middleware);
-                //     (new $middleware)->handle();
-                // }
 
 
-                return require base_path($route['controller']);
+                return require base_path('http/controllers/'.$route['controller']);
             };
         }
         $this->abort();

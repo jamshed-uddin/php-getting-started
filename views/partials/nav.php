@@ -9,9 +9,9 @@
            <div class="ml-10 flex items-baseline space-x-4">
              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
              <a href="/website/public" aria-current="page" class="<?= urlIs('/') ? 'bg-gray-900 text-white' : 'text-white' ?>  rounded-md  px-3 py-2 text-sm font-medium text-white">Home</a>
-             <a href="/website/public/about" class="<?= urlIs('/website/about') ? 'bg-gray-900 text-white' : 'text-white' ?> rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">About</a>
-             <a href="/website/public/contact" class="<?= urlIs('/website/contact') ? 'bg-gray-900 text-white' : 'text-white' ?> rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Contact</a>
-             <a href="/website/public/notes" class="<?= urlIs('/website/notes') ? 'bg-gray-900 text-white' : 'text-white' ?> rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">notes</a>
+             <a href="/website/public/about" class="<?= urlIs('/website/public/about') ? 'bg-gray-900 text-white' : 'text-white' ?> rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">About</a>
+             <a href="/website/public/contact" class="<?= urlIs('/website/public/contact') ? 'bg-gray-900 text-white' : 'text-white' ?> rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Contact</a>
+             <a href="/website/public/notes" class="<?= urlIs('/website/public/notes') ? 'bg-gray-900 text-white' : 'text-white' ?> rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">notes</a>
 
 
 
@@ -23,11 +23,21 @@
        <div class="hidden md:block">
          <div class="ml-4 flex items-center md:ml-6">
            <?php if ($_SESSION['user'] ?? false):   ?>
-             <h3>Hello, </h3>
-             <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-8 rounded-full outline -outline-offset-1 outline-white/10" />
+
+             <div class="flex items-center">
+               <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-8 rounded-full outline -outline-offset-1 outline-white/10" />
+
+               <form action="/website/public/login" method="POST">
+                 <input type="hidden" name="method" value="DELETE">
+                 <button type="submit" class=" text-white rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Logout</button>
+               </form>
+             </div>
            <?php else: ?>
 
-             <a href="/website/public/register" class="<?= urlIs('/website/notes') ? 'bg-gray-900 text-white' : 'text-white' ?> rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Register</a>
+             <div>
+               <a href="/website/public/register" class="<?= urlIs('/website/public/register') ? 'bg-gray-900 text-white' : 'text-white' ?> rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Register</a>
+               <a href="/website/public/login" class="<?= urlIs('/website/public/login') ? 'bg-gray-900 text-white' : 'text-white' ?> rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Login</a>
+             </div>
            <?php endif; ?>
          </div>
        </div>

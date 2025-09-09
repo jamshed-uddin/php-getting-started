@@ -11,25 +11,28 @@
 // ];
 
 
-$router->get('/website/public/', 'controllers/index.php');
-$router->get('/website/public/about', 'controllers/about.php');
-$router->get('/website/public/contact', 'controllers/contact.php');
+$router->get('/website/public/', 'index.php');
+$router->get('/website/public/about', 'about.php');
+$router->get('/website/public/contact', 'contact.php');
 
 // user 
-$router->get('/website/public/register', 'controllers/registration/create.php')->only('guest');
-$router->post('/website/public/register', 'controllers/registration/store.php');
+$router->get('/website/public/register', 'registration/create.php')->only('guest');
+$router->post('/website/public/register', 'registration/store.php');
+$router->get('/website/public/login', 'login/create.php')->only('guest');
+$router->post('/website/public/login', 'login/authenticate.php');
+$router->delete('/website/public/login', 'login/destroy.php')->only('auth');
 
 
 // notes routes
-$router->get('/website/public/notes', 'controllers/notes/index.php')->only('auth');
+$router->get('/website/public/notes', 'notes/index.php')->only('auth');
 
 // individual notes
-$router->get('/website/public/note', 'controllers/notes/show.php');
+$router->get('/website/public/note', 'notes/show.php');
 
 // delete notes
-$router->delete('/website/public/note', 'controllers/notes/destroy.php');
-$router->get('/website/public/notes/create', 'controllers/notes/create.php');
-$router->post('/website/public/notes/create', 'controllers/notes/store.php');
-$router->get('/website/public/notes/edit', 'controllers/notes/edit.php');
-$router->patch('/website/public/notes/edit', 'controllers/notes/update.php');
+$router->delete('/website/public/note', 'notes/destroy.php');
+$router->get('/website/public/notes/create', 'notes/create.php');
+$router->post('/website/public/notes/create', 'notes/store.php');
+$router->get('/website/public/notes/edit', 'notes/edit.php');
+$router->patch('/website/public/notes/edit', 'notes/update.php');
 //$router->patch('/website/public/notes/edit', [Home:class, 'create']);

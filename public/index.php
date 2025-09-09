@@ -2,6 +2,8 @@
 
 session_start();
 
+
+
 use core\Routers;
 
 const BASE_PATH = __DIR__ . '/../';
@@ -37,10 +39,10 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 $method  =  $_POST['method'] ?? $_SERVER['REQUEST_METHOD'];
 
+
 // echo "<pre>";
 // var_dump($method);
 // var_dump($uri);
-
 // echo "</pre>";
 
 

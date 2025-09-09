@@ -50,3 +50,17 @@ function view($path, $attribute = [])
 
     require base_path('views/' . $path);
 }
+
+
+function matchPassword($inputPassword, $storedPassword)
+{
+    return password_verify($inputPassword, $storedPassword);
+}
+
+
+
+function redirect($redirectTo)
+{
+    header("location: {$redirectTo}");
+    exit();
+}
